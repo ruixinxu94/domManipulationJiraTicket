@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Retrieve existing tickets from localStorage or initialize an empty array if none exist
-    const newlyExistedtickets = [
+    const defaultTickets = [
         {
             id: 1,
             title: 'Integrate third-party API',
@@ -26,8 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
             points: 2
         },
     ];
-    const tickets = JSON.parse(localStorage.getItem('tickets')) || newlyExistedtickets;
-    
+
+    // Retrieve existing tickets from localStorage or initialize with defaultTickets if none exist
+    const tickets = JSON.parse(localStorage.getItem('tickets')) || defaultTickets;
+
+    // Function to render tickets on the page
     function renderTickets(tickets) {
         const tableBody = document.getElementById('ticket-table').getElementsByTagName('tbody')[0];
         tableBody.innerHTML = ""; // Clear existing tickets
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // This function adds a new ticket to the dashboard
+    // Function to add a new ticket to the dashboard
     function addTicket(newTicket) {
         tickets.push(newTicket);
         localStorage.setItem('tickets', JSON.stringify(tickets));
@@ -57,9 +59,31 @@ document.addEventListener('DOMContentLoaded', function () {
     if (newTicketData) {
         const newTicket = JSON.parse(newTicketData);
         addTicket(newTicket);
-        localStorage.removeItem('newTicket'); // Clear the new ticket data
+        localStorage.removeItem('newTicket'); // Clear the new ticket data after adding
     }
 
     // Initial rendering of tickets
     renderTickets(tickets);
+
+    // Theme toggle button logic
+    const toggleThemeBtn = document.getElementById('toggle-theme-btn');
+
+    // Function to update the button text based on the theme
+    function updateButtonText() {
+        toggleThemeBtn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
+
+    toggleThemeBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        updateButtonText();
+        localStorage.setItem('ruixinxu-theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // Check for saved theme preference in localStorage and apply it
+    if(localStorage.getItem('ruixinxu-theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Update the button text based on the current theme
+    updateButtonText();
 });

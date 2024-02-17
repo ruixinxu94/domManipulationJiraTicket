@@ -41,3 +41,9 @@ document.getElementById('new-ticket').addEventListener('submit', function (e) {
     window.alert("Ticket created successfully!");
     window.location.href = 'index.html';
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('ruixinxu-theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+})

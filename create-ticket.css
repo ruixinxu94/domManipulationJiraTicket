@@ -3,6 +3,51 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Dark theme styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode button {
+    background-color: #454545;
+    color: #fff;
+    border-color: #777;
+}
+
+/* Text inputs and text area styles for dark mode */
+body.dark-mode input[type="text"],
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #555; /* Darker than the body background for depth */
+    color: #ddd; /* Lighter text for readability */
+    border: 1px solid #666; /* Subtle borders */
+}
+
+/* Placeholder text color for better visibility */
+body.dark-mode ::placeholder {
+    color: #bbb; /* Lighter than the input text for contrast */
+    opacity: 1; /* Full opacity */
+}
+
+/* Button hover effect */
+body.dark-mode input[type="submit"]:hover {
+    background-color: #006ae0; /* A slightly darker blue on hover */
+}
+
+/* Adjustments for select dropdown for consistency */
+body.dark-mode select {
+    -webkit-appearance: none; /* Removes default style on webkit browsers */
+    -moz-appearance: none; /* Removes default style on Firefox */
+    appearance: none; /* Removes default style */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+
 #create-ticket-form {
     max-width: 600px;
     margin: 50px auto;

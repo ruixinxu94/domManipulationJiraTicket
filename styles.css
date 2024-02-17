@@ -1,44 +1,87 @@
+/* Base styles for light theme */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
 }
 
+/* Base styles for dark theme */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Shared table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+/* Table header styles for both themes */
+th {
+    height: 50px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+/* Table header and cell styles for dark theme */
+body.dark-mode #ticket-table,
+body.dark-mode #ticket-table th,
+body.dark-mode #ticket-table td {
+    background-color: #454545;
+    color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* Common styles for table cells */
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Priority color styles */
+.high { color: red; }
+.medium { color: orange; }
+.low { color: green; }
+
+/* Toggle button styles */
+#toggle-theme-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-theme-btn:hover {
+    background-color: #0056b3;
+}
+
+#toggle-theme-btn:focus {
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.5);
+}
+
+/* Dashboard styles */
 #dashboard {
     width: 80%;
     margin: auto;
     padding: 20px;
 }
 
+/* Create ticket button styles */
 #create-ticket-btn {
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #c72e2e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th {
-    height: 50px;
-    background-color: #f4f4f4;
-}
-
-td {
-    text-align: center;
-    padding: 10px;
-}
-
-.high {
-    color: red;
-}
-
-.medium {
-    color: orange;
-}
-
-.low {
-    color: green;
-}
